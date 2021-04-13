@@ -1,0 +1,92 @@
+/home/khuang31: fab -f a2r_khuang31.py --host=myvmlab.senecacollege.ca --port=7718 addUser:ops435
+[myvmlab.senecacollege.ca] Executing task 'addUser'
+[myvmlab.senecacollege.ca] sudo: useradd ops435
+[myvmlab.senecacollege.ca] out: sudo password:
+
+[myvmlab.senecacollege.ca] out: useradd: user 'ops435' already exists
+[myvmlab.senecacollege.ca] out:
+
+
+Fatal error: sudo() received nonzero return code 9 while executing!
+
+Requested: useradd ops435
+Executed: sudo -S -p 'sudo password:'  /bin/bash -l -c "useradd ops435"
+
+Aborting.
+Disconnecting from myvmlab.senecacollege.ca:7718... done.
+
+
+/home/khuang31: fab -f a2r_khuang31.py --host=myvmlab.senecacollege.ca --port=7718 findUser:ops435
+[myvmlab.senecacollege.ca] Executing task 'findUser'
+[myvmlab.senecacollege.ca] run: getent passwd ops435 | cut -d: -f1
+[myvmlab.senecacollege.ca] out: ops435
+[myvmlab.senecacollege.ca] out:
+
+The given user name ops435 found on the system.
+
+Done.
+Disconnecting from myvmlab.senecacollege.ca:7718... done.
+
+
+
+/home/khuang31: fab -f a2r_khuang31.py --host=myvmlab.senecacollege.ca --port=7718 findUser:seneca
+[myvmlab.senecacollege.ca] Executing task 'findUser'
+[myvmlab.senecacollege.ca] run: getent passwd seneca | cut -d: -f1
+The given user name seneca  not found on the system.
+
+Done.
+Disconnecting from myvmlab.senecacollege.ca:7718... done.
+
+
+
+/home/khuang31: fab -f a2r_khuang31.py --host=myvmlab.senecacollege.ca --port=7718 listUser
+[myvmlab.senecacollege.ca] Executing task 'listUser'
+[myvmlab.senecacollege.ca] run: awk -F: '/bash$/{print $1}' /etc/passwd
+[myvmlab.senecacollege.ca] out: root
+[myvmlab.senecacollege.ca] out: itsadmin
+[myvmlab.senecacollege.ca] out: student
+[myvmlab.senecacollege.ca] out: instructor
+[myvmlab.senecacollege.ca] out: ops435
+[myvmlab.senecacollege.ca] out:
+
+['root', 'itsadmin', 'student', 'instructor', 'ops435']
+
+Done.
+Disconnecting from myvmlab.senecacollege.ca:7718... done.
+
+
+
+
+/home/khuang31: fab -f a2r_khuang31.py --host=myvmlab.senecacollege.ca --port=7718 listSysUser
+[myvmlab.senecacollege.ca] Executing task 'listSysUser'
+[myvmlab.senecacollege.ca] run: awk -F: '$7 !~ /bash$/{print $1}' /etc/passwd
+[myvmlab.senecacollege.ca] out: bin
+[myvmlab.senecacollege.ca] out: daemon
+[myvmlab.senecacollege.ca] out: adm
+[myvmlab.senecacollege.ca] out: lp
+[myvmlab.senecacollege.ca] out: sync
+[myvmlab.senecacollege.ca] out: shutdown
+[myvmlab.senecacollege.ca] out: halt
+[myvmlab.senecacollege.ca] out: mail
+[myvmlab.senecacollege.ca] out: operator
+[myvmlab.senecacollege.ca] out: games
+[myvmlab.senecacollege.ca] out: ftp
+[myvmlab.senecacollege.ca] out: nobody
+[myvmlab.senecacollege.ca] out: systemd-network
+[myvmlab.senecacollege.ca] out: dbus
+[myvmlab.senecacollege.ca] out: polkitd
+[myvmlab.senecacollege.ca] out: sshd
+[myvmlab.senecacollege.ca] out: postfix
+[myvmlab.senecacollege.ca] out: chrony
+[myvmlab.senecacollege.ca] out: ntp
+[myvmlab.senecacollege.ca] out:
+
+['bin', 'daemon', 'adm', 'lp', 'sync', 'shutdown', 'halt', 'mail', 'operator', 'games', 'ftp', 'nobody', 'systemd-network', 'dbus', 'polkitd', 'sshd', 'postfix', 'chrony', 'ntp']
+
+Done.
+Disconnecting from myvmlab.senecacollege.ca:7718... done.
+
+
+
+
+
